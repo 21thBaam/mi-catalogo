@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital@1&display=swap');
+
+.view{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #454547;
+    height: 8vh;
+    text-align: center;
+}
+
+.button{
+    width: 99%;
+    height: 36px;
+    background: #37af65;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 30px;
+    box-shadow: 3px 3px 10px #222;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    padding: 3px 0 3px 0;
+    font-family: 'DM Mono', monospace;
+}
