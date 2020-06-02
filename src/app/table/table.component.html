@@ -9,12 +9,22 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let auto of autos; index as i">
-    <th scope="row">{{ i + 1 }}</th>
-    <td>{{ auto.marca }}</td>
-    <td>{{ auto.submarca}}</td>
-    <td>{{ auto.descripcion}}</td>
-    <td>{{ auto.modelo}}</td>
+  <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
+    <th scope="row">{{ i + 1 + (pageSize*(page-1)) }}</th>
+    <td>{{ auto?.marca }}</td>
+    <td>{{ auto?.submarca}}</td>
+    <td>{{ auto?.descripcion}}</td>
+    <td>{{ auto?.modelos}}</td>
+    <td><i class="fa fa-trash fa-2x"></i></td>
+    <td><i class="fa fa-edit fa-2x"></i></td>
   </tr>
   </tbody>
 </table>
+
+<div style="margin-left: 20px;">
+  <ngb-pagination aria-label="Default pagination"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="autos.length">
+  </ngb-pagination>
+</div>

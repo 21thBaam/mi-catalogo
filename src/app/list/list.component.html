@@ -2,14 +2,22 @@
 <p *ngFor="let valo of valor">{{valo}}</p>-->
 
 <div class="mx-auto">
-    <div *ngFor="let auto of autos" class="card">
+    <div *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="card">
         <div class="card-body">
             <a (click)="open(mymodal,auto)"><i class="fa fa-eye fa-3x"></i></a>
-            <h3 class="my-auto">{{auto.descripcion}}</h3>
+            <h3 class="my-auto">{{auto?.descripcion}}</h3>
         </div>
     </div>
 </div>
 <br>
+
+<div style="margin-left: 20px;">
+  <ngb-pagination aria-label="Default pagination"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="autos.length">
+  </ngb-pagination>
+</div>
 
 <ng-template #mymodal let-modal>
   <div class="modal-header">
@@ -19,8 +27,8 @@
     </button>
   </div>
   <div class="modal-body">
-    <p *ngFor = "let item of au | keyvalue: originalOrder">
-        {{item.key}} <strong> {{item.value}} </strong>
+    <p *ngFor = "let item of aSelected | keyvalue: originalOrder">
+        {{item?.key}} <strong> {{item?.value}} </strong>
       </p>
   </div>
   <div class="modal-footer">

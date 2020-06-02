@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AUTOMOVILES} from '../data';
 import {Automovil} from '../models';
+import { AutosService } from '../services/autos.service';
 
 @Component({
   selector: 'app-table',
@@ -8,11 +8,15 @@ import {Automovil} from '../models';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  autos = AUTOMOVILES;
+  autos;
+  page = 1;
+  pageSize = 10;
+  constructor(private autoService: AutosService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.autoService.getAutos().subscribe((response) => {
+      this.autos = response.data;
+    });
   }
 
 }

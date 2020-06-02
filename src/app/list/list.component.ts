@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AUTOMOVILES} from '../data';
 import {Automovil} from '../models';
 import {NgbModal, ModalDismissReasons } from  '@ng-bootstrap/ng-bootstrap';
 import { KeyValue } from '@angular/common';
+import { AutosService } from '../services/autos.service';
 
 
 @Component({
@@ -12,20 +12,20 @@ import { KeyValue } from '@angular/common';
 })
 export class ListComponent implements OnInit {
   autos: Automovil[];
-  au;
-
-  object: {[key: number]: string} = {2: 'foo', 1: 'bar'};
-  
-  lista = ["marca","descripcion"]; 
+  aSelected;
   closeResult: string;
-  constructor(private modalService: NgbModal) {}
+  page = 1;
+  pageSize = 10;
+  constructor(private modalService: NgbModal, private autoService: AutosService) {}
 
-  ngOnInit(): void {
-    this.autos = AUTOMOVILES;
+  ngOnInit() {
+    this.autoService.getAutos().subscribe((response) => {
+      this.autos = response.data;
+    });
   }
 
   open(content: any, auto: Automovil) {
-    this.au = auto;
+    this.aSelected = auto;
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
 
