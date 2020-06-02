@@ -1,0 +1,29 @@
+<!--<p>Resultado: {{valor[0]}}</p>
+<p *ngFor="let valo of valor">{{valo}}</p>-->
+
+<div class="mx-auto">
+    <div *ngFor="let auto of autos" class="card">
+        <div class="card-body">
+            <a (click)="open(mymodal,auto)"><i class="fa fa-eye fa-3x"></i></a>
+            <p class="my-auto">{{auto.descripcion}}</p>
+        </div>
+    </div>
+</div>
+<br>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Detalles Automóvil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p *ngFor = "let item of au | keyvalue: originalOrder">
+        {{item.key}} <strong> {{item.value}} </strong>
+      </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>

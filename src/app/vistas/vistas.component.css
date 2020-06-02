@@ -11,9 +11,9 @@
 
 .button{
     width: 99%;
-    height: 36px;
+    height: 38px;
     background: #37af65;
-    border-radius: 2px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 30px;
     box-shadow: 3px 3px 10px #222;
@@ -21,6 +21,6 @@
     text-align: center;
     text-decoration: none;
     margin: 4px 2px;
-    padding: 3px 0 3px 0;
+    padding: 0 0 3px 0;
     font-family: 'DM Mono', monospace;
 }
