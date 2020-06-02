@@ -1,3 +1,9 @@
+# Mi Catálogo
+
+## E1 A# 1 y 2
+
+![](hist/E1%20A%231%20y%202.png)
+
 # MiCatalogo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
