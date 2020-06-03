@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Automovil } from '../models';
+//import { Automovil } from '../models';
 import { KeyValue } from '@angular/common';
 
 @Component({

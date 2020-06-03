@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page404.component.css']
 })
 export class Page404Component implements OnInit {
-
+  name = "Angel";
+  apellido = "Reyes";
   constructor() { }
 
   ngOnInit(): void {
