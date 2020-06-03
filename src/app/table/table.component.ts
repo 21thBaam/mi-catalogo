@@ -12,6 +12,7 @@ import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 })
 export class TableComponent implements OnInit {
   autos: any;
+  autoVacio: Automovil = {} as Automovil;
   page: number;
   pageSize: number;
   constructor(private autoService: AutosService, private modalService: NgbModal) { }
@@ -28,11 +29,36 @@ export class TableComponent implements OnInit {
     const modalRef = this.modalService.open(ModalAddUpdateComponent, {centered: true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Editar';
+
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.updateAutos(auto).subscribe();
+      }
+    )
   }
 
   openModalDelete(auto: Automovil){
     const modalRef = this.modalService.open(ModalDeleteComponent, {centered: true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Eliminar';
+
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.deleteAutos(auto).subscribe();
+      }
+    )
+  }
+
+  openModalAdd(auto: Automovil){
+    const modalRef = this.modalService.open(ModalAddUpdateComponent, {centered: true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.accion = 'Agregar';
+
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.addAutos(auto).subscribe();
+        this.autoVacio = {} as Automovil;
+      }
+    )
   }
 }

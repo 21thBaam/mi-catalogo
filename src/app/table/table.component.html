@@ -1,7 +1,9 @@
+<button class="btn btn-primary addbtn" (click)="openModalAdd(autoVacio)">Agregar Auto <i class="fa fa-car"></i></button>
+
 <table class="table table-striped">
   <thead>
   <tr>
-    <th scope="col">#</th>
+    <th scope="col">ID</th>
     <th scope="col">Marca</th>
     <th scope="col">Submarca</th>
     <th scope="col">Descripción</th>
@@ -9,8 +11,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
-    <th scope="row">{{ i + 1 + (pageSize*(page-1)) }}</th>
+  <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <td>{{auto?._id}}</td>
     <td>{{ auto?.marca }}</td>
     <td>{{ auto?.submarca}}</td>
     <td>{{ auto?.descripcion}}</td>

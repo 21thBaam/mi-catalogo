@@ -4,24 +4,26 @@
       <span aria-hidden="true">×</span>
     </button>
 </div>
-<div class="modal-body">
-    <div class="form-group">
-        <label for="marca"><b>Marca</b></label>
-        <input type="text" class="form-control" id="marca" placeholder="Ingresa marca" value="{{auto.marca}}">
+<form #formAutos = "ngForm">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="marca"><b>Marca</b></label>
+            <input type="text" class="form-control" id="marca" placeholder="Ingresa marca" [(ngModel)]="auto.marca" name="marca">
+        </div>
+        <div class="form-group">
+            <label for="submarca"><b>Submarca</b></label>
+            <input type="text" class="form-control" id="submarca" placeholder="Ingresa Submarca" [(ngModel)]="auto.submarca" name="submarca">
+        </div>
+        <div class="form-group">
+            <label for="descripción"><b>Descripción</b></label>
+            <input type="text" class="form-control" id="descripción" placeholder="Ingresa Descripción" [(ngModel)]="auto.descripcion" name="descripcion">
+        </div>
+        <div class="form-group">
+            <label for="modelos"><b>Modelos</b></label>
+            <input type="text" class="form-control" id="modelos" placeholder="Ingresa Modelos" [(ngModel)]="auto.modelos" name="modelos" disabled>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-dark" (click)="activeModal.close(auto)">Guardar</button>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="submarca"><b>Submarca</b></label>
-        <input type="text" class="form-control" id="submarca" placeholder="Ingresa Submarca" value="{{auto.submarca}}">
-    </div>
-    <div class="form-group">
-        <label for="descripción"><b>Descripción</b></label>
-        <input type="text" class="form-control" id="descripción" placeholder="Ingresa Descripción" value="{{auto.descripcion}}">
-    </div>
-    <div class="form-group">
-        <label for="modelos"><b>Modelos</b></label>
-        <input type="text" class="form-control" id="modelos" placeholder="Ingresa Modelos" value="{{auto.modelos}}" disabled>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
-      </div>
-</div>
+</form>

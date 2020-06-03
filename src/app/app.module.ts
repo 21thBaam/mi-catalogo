@@ -13,6 +13,7 @@ import { Page404Component } from './page404/page404.component';
 import { ModalAutoDetallesComponent } from './modal-auto-detalles/modal-auto-detalles.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

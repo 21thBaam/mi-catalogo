@@ -1,3 +1,7 @@
 .actions{
     cursor: pointer;
 }
+
+.addbtn{
+    margin: 15px;
+}
