@@ -4,7 +4,7 @@
 <div class="mx-auto">
     <div *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="card">
         <div class="card-body">
-            <a (click)="open(mymodal,auto)"><i class="fa fa-eye fa-3x"></i></a>
+            <a (click)="open(auto)"><i class="fa fa-eye fa-3x"></i></a>
             <h3 class="my-auto">{{auto?.descripcion}}</h3>
         </div>
     </div>
@@ -18,20 +18,3 @@
     [collectionSize]="autos.length">
   </ngb-pagination>
 </div>
-
-<ng-template #mymodal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Detalles Automóvil</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p *ngFor = "let item of aSelected | keyvalue: originalOrder">
-        {{item?.key}} <strong> {{item?.value}} </strong>
-      </p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
-  </div>
-</ng-template>

@@ -3,6 +3,7 @@ import {Automovil} from '../models';
 import {NgbModal, ModalDismissReasons } from  '@ng-bootstrap/ng-bootstrap';
 import { KeyValue } from '@angular/common';
 import { AutosService } from '../services/autos.service';
+import { ModalAutoDetallesComponent } from '../modal-auto-detalles/modal-auto-detalles.component';
 
 
 @Component({
@@ -24,12 +25,9 @@ export class ListComponent implements OnInit {
     });
   }
 
-  open(content: any, auto: Automovil) {
-    this.aSelected = auto;
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
-  }
-
-  originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
-    return 0;
+  open(auto: Automovil) {
+    const modalRef = this.modalService.open(ModalAutoDetallesComponent, {centered: true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.accion = 'Detalles Automóvil';
   }
 }

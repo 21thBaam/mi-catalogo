@@ -15,8 +15,8 @@
     <td>{{ auto?.submarca}}</td>
     <td>{{ auto?.descripcion}}</td>
     <td>{{ auto?.modelos}}</td>
-    <td><i class="fa fa-trash fa-2x"></i></td>
-    <td><i class="fa fa-edit fa-2x"></i></td>
+    <td class="actions" (click)="openModalDelete(auto)"><i class="fa fa-trash fa-2x"></i></td>
+    <td class="actions" (click)="openModalEdit(auto)"><i class="fa fa-edit fa-2x"></i></td>
   </tr>
   </tbody>
 </table>

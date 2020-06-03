@@ -10,6 +10,9 @@ import { ListComponent } from './list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { Page404Component } from './page404/page404.component';
+import { ModalAutoDetallesComponent } from './modal-auto-detalles/modal-auto-detalles.component';
+import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
+import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { Page404Component } from './page404/page404.component';
     VistasComponent,
     ListComponent,
     TableComponent,
-    Page404Component
+    Page404Component,
+    ModalAutoDetallesComponent,
+    ModalAddUpdateComponent,
+    ModalDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +33,7 @@ import { Page404Component } from './page404/page404.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalAddUpdateComponent, ModalAutoDetallesComponent,ModalDeleteComponent]
 })
 export class AppModule { }

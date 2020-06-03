@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="marca"><b>Marca</b></label>
+        <input type="text" class="form-control" id="marca" placeholder="Ingresa marca" value="{{auto.marca}}">
+    </div>
+    <div class="form-group">
+        <label for="submarca"><b>Submarca</b></label>
+        <input type="text" class="form-control" id="submarca" placeholder="Ingresa Submarca" value="{{auto.submarca}}">
+    </div>
+    <div class="form-group">
+        <label for="descripción"><b>Descripción</b></label>
+        <input type="text" class="form-control" id="descripción" placeholder="Ingresa Descripción" value="{{auto.descripcion}}">
+    </div>
+    <div class="form-group">
+        <label for="modelos"><b>Modelos</b></label>
+        <input type="text" class="form-control" id="modelos" placeholder="Ingresa Modelos" value="{{auto.modelos}}" disabled>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
+      </div>
+</div>
