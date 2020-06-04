@@ -4,26 +4,49 @@
       <span aria-hidden="true">×</span>
     </button>
 </div>
-<form #formAutos = "ngForm">
+<form #formAutos = "ngForm" (submit)="onSubmit()">
     <div class="modal-body">
         <div class="form-group">
             <label for="marca"><b>Marca</b></label>
-            <input type="text" class="form-control" id="marca" placeholder="Ingresa marca" [(ngModel)]="auto.marca" name="marca">
+            <input type="text" class="form-control" id="marca" placeholder="Ingresa marca" [(ngModel)]="auto.marca" name="marca" #marca="ngModel" minlength="4" required>
         </div>
+        <div *ngIf="marca.invalid && (marca.dirty || marca.touched)" class="alert alert-danger">
+            <div *ngIf="marca.errors.minlength">Minimo de caracteres 4</div>
+            <div *ngIf="marca.errors.required">Ingrese una marca</div>
+        </div>
+        <!--<div [hidden]="marca.valid || marca.pristine" class="alert alert-danger">Ingrese una marca</div>-->
         <div class="form-group">
             <label for="submarca"><b>Submarca</b></label>
-            <input type="text" class="form-control" id="submarca" placeholder="Ingresa Submarca" [(ngModel)]="auto.submarca" name="submarca">
+            <input type="text" class="form-control" id="submarca" placeholder="Ingresa Submarca" [(ngModel)]="auto.submarca" name="submarca" #submarca="ngModel" minlength="4" required>
+        </div>
+        <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)" class="alert alert-danger">
+            <div *ngIf="submarca.errors.minlength">Minimo de caracteres 4</div>
+            <div *ngIf="submarca.errors.required">Ingrese una submarca</div>
         </div>
         <div class="form-group">
             <label for="descripción"><b>Descripción</b></label>
             <input type="text" class="form-control" id="descripción" placeholder="Ingresa Descripción" [(ngModel)]="auto.descripcion" name="descripcion">
         </div>
         <div class="form-group">
-            <label for="modelos"><b>Modelos</b></label>
-            <input type="text" class="form-control" id="modelos" placeholder="Ingresa Modelos" [(ngModel)]="auto.modelos" name="modelos" disabled>
+            <label for="formControlRange"><b>Modelos</b></label>
+            <div style="justify-content: space-between;">
+            <label>Desde</label>
+            <div style="display: flex;">
+                <input type="range" style="width: 80%;" class="form-control-range" min="2000" max="2020" step="1" [(ngModel)]="minmax[0]" name="modelo-min">
+                <p>&emsp;{{minmax[0]}}</p>
+            </div>
+            <label>Hasta</label>
+            <div style="display: flex;">
+                <input type="range" style="width: 80%;" class="form-control-range" min="2000" max="2020" step="1" [(ngModel)]="minmax[1]" name="modelo-max">
+                <p>&emsp;{{minmax[1]}}</p>
+            </div>
+            </div>
+            <div *ngIf="minmax[0] > minmax[1]" class="alert alert-danger">"Desde" no debe ser mayor que "Hasta"</div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-outline-dark" (click)="activeModal.close(auto)">Guardar</button>
+            <button type="submit"  [disabled]="!formAutos.form.valid" class="btn btn-outline-dark">Guardar</button>
         </div>
     </div>
 </form>
+
+<!--(click)="activeModal.close(auto)"-->

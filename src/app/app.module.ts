@@ -14,6 +14,7 @@ import { Page404Component } from './page404/page404.component';
 import { ModalAutoDetallesComponent } from './modal-auto-detalles/modal-auto-detalles.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
     Page404Component,
     ModalAutoDetallesComponent,
     ModalAddUpdateComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    ForbiddenNameDirective
   ],
   imports: [
     BrowserModule,

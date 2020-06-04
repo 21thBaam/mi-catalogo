@@ -1,0 +1,13 @@
+p{
+    margin: 0;
+    padding: 0;
+    color: dodgerblue;
+}
+
+.ng-valid[required]{
+    border-left: solid green 3px;
+}
+
+.ng-invalid:not(form){
+    border-left: solid red 3px;
+}

@@ -5,12 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './page404.component.html',
   styleUrls: ['./page404.component.css']
 })
-export class Page404Component implements OnInit {
-  name = "Angel";
-  apellido = "Reyes";
+export class Page404Component {
   constructor() { }
 
-  ngOnInit(): void {
+  onSubmit(data){
+    console.warn(data);
   }
-
 }
