@@ -1,26 +1,7 @@
 # Mi Catálogo
 
-## E6 A 17
-
-## E5 A 13.5
-
-![](hist/E5%20A13.png)
-
-## E4 A 10
-
-![](hist/E4%20A10.png)
-
-## E3 A 7
-
-![](hist/E3%20A7.png)
-
-## E2 A 3 y 4
-
-![](hist/E2%20A3%20y%204.png)
-
-## E1 A# 1 y 2
-
-![](hist/E1%20A%231%20y%202.png)
+## E7 A 19
+![](hist/E7%20A19.png)
 
 # MiCatalogo
 
