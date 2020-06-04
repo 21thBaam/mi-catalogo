@@ -1,6 +1,6 @@
 # Mi Catálogo
 
-## Deployment Github
+## E8 Deployment Github
 
 https://21thbaam.github.io/mi-catalogo/
 
