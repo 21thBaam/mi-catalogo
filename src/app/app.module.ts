@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.com
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
 import { ModelosPipePipe } from './pipes/modelos-pipe.pipe';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,16 @@ import { ModelosPipePipe } from './pipes/modelos-pipe.pipe';
     ModalAddUpdateComponent,
     ModalDeleteComponent,
     ForbiddenNameDirective,
-    ModelosPipePipe
+    ModelosPipePipe,
+    LogComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

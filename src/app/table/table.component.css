@@ -5,3 +5,18 @@
 .addbtn{
     margin: 15px;
 }
+
+.input-group{
+    width: 40%;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.input-group-text{
+    height: calc(1.5em + .75rem + 2px);
+    margin: auto 0 auto 0;
+}
+
+.form-control{
+    margin: auto 0 auto 0;
+}

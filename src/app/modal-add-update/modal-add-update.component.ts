@@ -17,7 +17,7 @@ export class ModalAddUpdateComponent {
   constructor(public activeModal: NgbActiveModal) { }
 
   onSubmit(){
-    if(this.minmax[0]<this.minmax[1]){
+    if(this.minmax[0]<=this.minmax[1]){
       this.auto.modelos = [];
       for(var i=this.minmax[0];i<=this.minmax[1];i++){
         console.log("Numero: ",i," Tipo: ",typeof i);

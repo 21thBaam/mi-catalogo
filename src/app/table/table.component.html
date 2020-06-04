@@ -1,4 +1,10 @@
-<button class="btn btn-primary addbtn" (click)="openModalAdd(autoVacio)">Agregar Auto <i class="fa fa-car"></i></button>
+<div class="input-group">
+  <button class="btn btn-primary addbtn" (click)="openModalAdd(autoVacio)">Agregar Auto <i class="fa fa-car"></i></button>
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-search"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="Busqueda" [(ngModel)]="searchText" autocomplete="off">
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -17,7 +23,7 @@
       </th>
     </tr>
     
-    <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <tr *ngFor="let auto of autos | filter:searchText |slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
       <td>{{auto?._id}}</td>
       <td>{{ auto?.marca }}</td>
       <td>{{ auto?.submarca}}</td>
