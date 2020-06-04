@@ -11,15 +11,21 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-    <td>{{auto?._id}}</td>
-    <td>{{ auto?.marca }}</td>
-    <td>{{ auto?.submarca}}</td>
-    <td>{{ auto?.descripcion}}</td>
-    <td>{{ auto?.modelos}}</td>
-    <td class="actions" (click)="openModalDelete(auto)"><i class="fa fa-trash fa-2x"></i></td>
-    <td class="actions" (click)="openModalEdit(auto)"><i class="fa fa-edit fa-2x"></i></td>
-  </tr>
+    <tr *ngIf="displayBar">
+      <th colspan="7">
+        <p><ngb-progressbar type="success" [value]="100" [striped]=true [animated]=true></ngb-progressbar></p>
+      </th>
+    </tr>
+    
+    <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <td>{{auto?._id}}</td>
+      <td>{{ auto?.marca }}</td>
+      <td>{{ auto?.submarca}}</td>
+      <td>{{ auto?.descripcion}}</td>
+      <td>{{ auto?.modelos | modelosPipe}}</td>
+      <td class="actions" (click)="openModalDelete(auto)"><i class="fa fa-trash fa-2x"></i></td>
+      <td class="actions" (click)="openModalEdit(auto)"><i class="fa fa-edit fa-2x"></i></td>
+    </tr>
   </tbody>
 </table>
 

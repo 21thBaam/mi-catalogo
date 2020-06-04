@@ -11,17 +11,20 @@ import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  autos: any;
+  autos: Automovil[];
   autoVacio: Automovil = {} as Automovil;
   page: number;
   pageSize: number;
+  displayBar: boolean;
   constructor(private autoService: AutosService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.page = 1;
+    this.displayBar = true;
+    this.page = +sessionStorage.getItem('currentPage');
     this.pageSize = 10;
     this.autoService.getAutos().subscribe((response) => {
       this.autos = response.data;
+      this.displayBar = false;
     });
   }
 
@@ -32,7 +35,10 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto)=>{
-        this.autoService.updateAutos(auto).subscribe();
+        this.autoService.updateAutos(auto).subscribe(response => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+        });
       }
     )
   }
@@ -44,7 +50,10 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto)=>{
-        this.autoService.deleteAutos(auto).subscribe();
+        this.autoService.deleteAutos(auto).subscribe(response => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+        });
       }
     )
   }
@@ -56,7 +65,10 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto)=>{
-        this.autoService.addAutos(auto).subscribe();
+        this.autoService.addAutos(auto).subscribe(response => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+        });
         this.autoVacio = {} as Automovil;
       }
     )

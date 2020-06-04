@@ -15,6 +15,7 @@ import { ModalAutoDetallesComponent } from './modal-auto-detalles/modal-auto-det
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
+import { ModelosPipePipe } from './pipes/modelos-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
     ModalAutoDetallesComponent,
     ModalAddUpdateComponent,
     ModalDeleteComponent,
-    ForbiddenNameDirective
+    ForbiddenNameDirective,
+    ModelosPipePipe
   ],
   imports: [
     BrowserModule,
